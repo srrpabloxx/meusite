@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sim ou Sim</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main>
+
+        <!-- PERGUNTA 1 -->
+        <section id="pergunta1" class="pergunta ativa">
+
+            <h1>Você gosta de mim?</h1>
+
+            <div class="botoes">
+                <button onclick="responder('gosto')">
+                    SIM
+                </button>
+
+                <button onclick="responder('naogosto')">
+                    NÃO
+                </button>
+            </div>
+
+        </section>
+
+
+        <!-- CAMINHO DO SIM -->
+        <section id="gosto" class="pergunta">
+
+            <h1>aceita sair cmg? wuw</h1>
+
+            <div class="botoes">
+                <button onclick="responder('aceito')">
+                    SIM
+                </button>
+
+                <button onclick="responder('naoaceito')">
+                    NÃO
+                </button>
+            </div>
+
+        </section>
+
+         <!-- CAMINHO DO SIM -->
+        <section id="aceito" class="pergunta">
+
+            <h1>minhas ideias de date:::? wuw</h1>
+
+            <div class="botoes">
+                <button onclick="responder('açai')">
+                    Açaí
+                </button>
+
+                <button onclick="responder('pizza')">
+                    Pizza
+                </button>
+            </div>
+
+        </section>
+
+
+        <!-- CAMINHO DO NÃO -->
+        <section id="naogosto" class="pergunta">
+
+            <h1>Pensa direito...</h1>
+
+            <div class="botoes">
+                <button onclick="responder('gosto')">
+                    GOSTO
+                </button>
+
+                <button onclick="responder('naogosto')">
+                    NÃO GOSTO
+                </button>
+            </div>
+
+        </section>
+
+        <section id="açai" class="pergunta">
+
+            <h1>Meu favoritoo, acho q é o destino...</h1>
+
+            <div class="botoes">
+            <button onclick="mostrarFinal()">
+                SURPESA ❤️
+            </button>
+    </div>
+
+           </section>
+
+        <section id="pizza" class="pergunta">
+
+            <h1>Meu favoritoo, acho q é o destino...</h1>
+
+            <div class="botoes">
+            <button onclick="mostrarFinal()">
+                SURPESA ❤️
+            </button>
+    </div>
+
+    <section id="final" class="tela-final">
+
+    <div class="album">
+
+        <h1>Minha surpresa</h1>
+
+        <p>
+            Algumas coisas foram feitas para serem descobertas.
+        </p>
+
+        <div class="video">
+            <video controls loop>
+                <source src="images/video.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="fotos">
+
+            <div class="foto">
+                <img src="images/foto1.jpg" alt="Foto 1">
+                <p>Um momento especial.</p>
+            </div>
+
+            <div class="foto">
+                <img src="images/foto2.jpg" alt="Foto 2">
+                <p>Outra lembrança.</p>
+            </div>
+
+        </div>
+
+        <audio id="musicaFinal" loop>
+            <source src="sounds/musica.mp3" type="audio/mpeg">
+        </audio>
+
+        <button id="botaoMusica" onclick="alternarMusica()">
+            🔊 Música
+        </button>
+
+    </div>
+
+</section>
+
+</section>
+
+</section>
+
+</section>
+
+
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
