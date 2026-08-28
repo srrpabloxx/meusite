@@ -138,13 +138,80 @@
             ACEITO
         </button>
 
-        <button id="botaoNaoAceito">
+        <button id="botaoNaoAceito" type="button" aria-label="Não aceito" style="position: relative; transition: left 0.12s ease, top 0.12s ease, transform 0.12s ease; touch-action: none; user-select: none;">
             NÃO ACEITO
         </button>
 
     </div>
 
 </section>
+
+<script>
+  (() => {
+    const button = document.getElementById('botaoNaoAceito');
+    if (!button) return;
+
+    const container = button.closest('.botoes');
+
+    const moverBotao = (event) => {
+      if (!container) return;
+
+      const rect = container.getBoundingClientRect();
+      const buttonRect = button.getBoundingClientRect();
+
+      const maxX = Math.max(0, rect.width - buttonRect.width - 12);
+      const maxY = Math.max(0, rect.height - buttonRect.height - 12);
+
+      let x = Math.random() * maxX;
+      let y = Math.random() * maxY;
+
+      if (event && typeof event.clientX === 'number' && typeof event.clientY === 'number') {
+        const px = event.clientX - rect.left;
+        const py = event.clientY - rect.top;
+
+        if (px >= 0 && px <= rect.width && py >= 0 && py <= rect.height) {
+          x = px < rect.width / 2 ? Math.min(maxX, px + 26) : Math.max(0, px - buttonRect.width - 26);
+          y = py < rect.height / 2 ? Math.min(maxY, py + 20) : Math.max(0, py - buttonRect.height - 20);
+        }
+      }
+
+      button.style.left = `${x}px`;
+      button.style.top = `${y}px`;
+      button.style.transform = 'scale(1.02)';
+      button.style.cursor = 'not-allowed';
+    };
+
+    button.addEventListener('mouseenter', moverBotao);
+    button.addEventListener('mousemove', moverBotao);
+    button.addEventListener('pointerenter', (event) => {
+      event.preventDefault();
+      moverBotao(event);
+    });
+    button.addEventListener('pointerdown', (event) => {
+      event.preventDefault();
+      moverBotao(event);
+    });
+    button.addEventListener('click', (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      moverBotao(event);
+    });
+
+    button.addEventListener('touchstart', (event) => {
+      event.preventDefault();
+      const ponto = event.touches[0] || event.changedTouches[0];
+      moverBotao(ponto);
+    }, { passive: false });
+
+    button.addEventListener('touchmove', (event) => {
+      event.preventDefault();
+      const ponto = event.touches[0] || event.changedTouches[0];
+      moverBotao(ponto);
+    }, { passive: false });
+
+    button.tabIndex = -1;
+  })();
+</script>
 
         <section id="açai" class="pergunta">
 
