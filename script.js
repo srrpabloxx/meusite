@@ -12,7 +12,7 @@ function responder(proximaPergunta) {
 function mostrarFinal() {
 
     document
-        .querySelector(".pergunta.ativa")
+        .querySelector(".ativa")
         .classList.remove("ativa");
 
     document
@@ -42,3 +42,18 @@ function alternarMusica() {
 
     }
 }
+
+const botao = document.getElementById("botaoNaoAceito");
+
+botao.addEventListener("mouseover", () => {
+
+    const maxX = window.innerWidth - botao.offsetWidth;
+    const maxY = window.innerHeight - botao.offsetHeight;
+
+    const x = Math.random() * maxX;
+    const y = Math.random() * maxY;
+
+    botao.style.left = `${x}px`;
+    botao.style.top = `${y}px`;
+
+});
